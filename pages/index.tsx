@@ -23,7 +23,7 @@ export default function Home() {
 			<h1>Daniel 👋!</h1>
 
 			<p className="intro">
-				Hi! I&apos;m Daniel, 15-year-old developer from the United
+				Hi! I&apos;m Daniel, a 15-year-old developer from the United
 				States.
 			</p>
 

@@ -47,6 +47,15 @@ export default function Discord() {
 							border-radius: 0.5em;
 							height: 4em;
 						}
+
+						p {
+							margin-top: 0.1em;
+							font-size: 0.8rem;
+
+							&:last-child {
+								opacity: 0.5;
+							}
+						}
 					}
 				}
 			`}</style>
