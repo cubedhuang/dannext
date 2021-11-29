@@ -1,12 +1,12 @@
 import Document, {
-	Html,
+	DocumentContext,
 	Head,
+	Html,
 	Main,
-	NextScript,
-	DocumentContext
+	NextScript
 } from "next/document";
 
-export default class SlateDocument extends Document {
+export default class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
 		const initialProps = await Document.getInitialProps(ctx);
 		return { ...initialProps };

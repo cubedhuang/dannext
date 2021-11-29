@@ -1,29 +1,29 @@
 import Head from "next/head";
-import Hero from "../components/hero";
-import FeatureList from "../components/FeatureList";
 
 export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Slate &ndash; Discord Bot</title>
-				<meta
-					name="description"
-					content="Slate is a simple yet powerful bot that lets you watch YouTube Together, log ghost pings, play music, and dozens of more features!"
-				/>
+				<title>Daniel</title>
+				<meta name="description" content="It's me!" />
 
-				<meta property="og:title" content="Slate" />
-				<meta
-					property="og:description"
-					content="Slate is a simple yet powerful bot that lets you watch YouTube Together, log ghost pings, play music, and dozens of more features!"
-				/>
+				<meta property="og:title" content="Daniel" />
+				<meta property="og:description" content="It's me!" />
 			</Head>
 
-			<Hero />
+			<style jsx>{`
+				.intro {
+					font-size: 1.2rem;
+					opacity: 0.9;
+				}
+			`}</style>
 
-			<main>
-				<FeatureList />
-			</main>
+			<h1>Daniel 👋!</h1>
+
+			<p className="intro">
+				Hi! I&apos;m Daniel, 15-year-old developer from the United
+				States.
+			</p>
 		</>
 	);
 }
