@@ -7,7 +7,7 @@ export default function Home() {
 				<title>Daniel</title>
 				<meta name="description" content="It's me!" />
 
-				<meta property="og:title" content="Daniel" />
+				<meta property="og:title" content="Daniel 👋" />
 				<meta property="og:description" content="It's me!" />
 			</Head>
 

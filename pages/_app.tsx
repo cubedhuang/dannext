@@ -14,11 +14,11 @@ export default function SlateWeb({ Component, pageProps, router }: AppProps) {
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:url"
-					content={"https://slate.dan.onl" + router.pathname}
+					content={"https://dan.onl" + router.pathname}
 				/>
 				<meta property="og:image" content="/slate.png" />
 				<meta property="og:image:alt" content="Slate's Logo" />
-				<meta property="og:site_name" content="Slate" />
+				<meta property="og:site_name" content="Daniel" />
 			</Head>
 
 			<main>
