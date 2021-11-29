@@ -57,7 +57,7 @@ body {
 		var(--bg-2) var(--bg-size),
 		var(--bg-2) calc(2 * var(--bg-size))
 	);
-	background-size: 150vw 150vh;
+	background-size: calc(100vw + calc(3 * var(--bg-size))) 100vh;
 
 	animation: bg-animation 10s linear infinite;
 }
