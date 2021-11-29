@@ -58,6 +58,7 @@ body {
 		var(--bg-2) calc(2 * var(--bg-size))
 	);
 	background-size: calc(100vw + calc(3 * var(--bg-size))) 100vh;
+	background-attachment: fixed;
 
 	animation: bg-animation 10s linear infinite;
 }

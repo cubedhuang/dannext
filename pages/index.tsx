@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import Discord from "../components/Discord";
+
 export default function Home() {
 	return (
 		<>
@@ -24,6 +26,8 @@ export default function Home() {
 				Hi! I&apos;m Daniel, 15-year-old developer from the United
 				States.
 			</p>
+
+			<Discord />
 		</>
 	);
 }
