@@ -1,7 +1,13 @@
-import { useLanyard } from "react-use-lanyard";
+import Clock from "react-live-clock";
+import { LanyardData, useLanyard } from "react-use-lanyard";
+
+const USER_ID = "299707523370319883";
 
 export default function Discord() {
-	const { data: lanyard } = useLanyard({ userId: "299707523370319883" });
+	const { status: lanyard } = useLanyard({
+		userId: USER_ID,
+		socket: true
+	});
 
 	return (
 		<>
@@ -26,6 +32,7 @@ export default function Discord() {
 						img {
 							border-radius: 50%;
 							height: 4em;
+							width: 4em;
 						}
 
 						.username {
@@ -33,6 +40,29 @@ export default function Discord() {
 
 							.discrim {
 								opacity: 0.5;
+							}
+						}
+
+						.right {
+							margin-left: auto;
+							text-align: right;
+
+							.time {
+								opacity: 0.5;
+							}
+							p {
+								&.online {
+									color: #4cd137;
+								}
+								&.idle {
+									color: #fbc531;
+								}
+								&.dnd {
+									color: #e84118;
+								}
+								&.offline {
+									color: #7f8fa6;
+								}
 							}
 						}
 					}
@@ -62,56 +92,89 @@ export default function Discord() {
 
 			<div className="discord">
 				<div className="user">
-					<img
-						src={
-							lanyard?.data.discord_user.avatar &&
-							`https://cdn.discordapp.com/avatars/299707523370319883/${
-								lanyard?.data.discord_user.avatar
+					{lanyard?.discord_user.avatar && (
+						<img
+							src={`https://cdn.discordapp.com/avatars/${USER_ID}/${
+								lanyard?.discord_user.avatar
 							}.${
-								lanyard?.data.discord_user.avatar.startsWith(
-									"a_"
-								)
+								lanyard?.discord_user.avatar.startsWith("a_")
 									? "gif"
 									: "webp"
-							}?size=256`
-						}
-						alt="Discord Avatar"
-					/>
+							}?size=256`}
+							alt="Discord Avatar"
+						/>
+					)}
 					<div>
 						<div className="username">
-							{lanyard?.data.discord_user.username}
+							{lanyard?.discord_user.username}
 							<span className="discrim">
-								#{lanyard?.data.discord_user.discriminator}
+								#{lanyard?.discord_user.discriminator}
 							</span>
 						</div>
-						{lanyard?.data.activities[0]?.type === 4 && (
-							<p>{lanyard?.data.activities[0]?.state}</p>
+						{lanyard?.activities[0]?.type === 4 && (
+							<p>{lanyard?.activities[0]?.state}</p>
 						)}
+					</div>
+					<div className="right">
+						<p className="time">
+							<Clock
+								format={"HH:mm:ss"}
+								ticking={true}
+								timezone={"US/Eastern"}
+							/>{" "}
+							in Atlanta
+						</p>
+						<p className={lanyard?.discord_status ?? "offline"}>
+							{getStatusString(lanyard)}
+						</p>
 					</div>
 				</div>
 				<div className="spotify">
 					<img
 						src={
-							lanyard?.data.spotify?.album_art_url ??
-							"/emptysong.jpg"
+							lanyard?.spotify?.album_art_url ?? "/emptysong.jpg"
 						}
 						alt="Spotify Album Art"
 					/>
 					<div>
 						<h4>Spotify</h4>
 						<p>
-							{lanyard?.data.listening_to_spotify
-								? `${lanyard?.data.spotify?.song} by ${lanyard?.data.spotify?.artist}`
+							{lanyard?.listening_to_spotify
+								? `${lanyard?.spotify?.song} by ${lanyard?.spotify?.artist}`
 								: "Not Listening to Anything"}
 						</p>
 						<p>
-							{lanyard?.data.listening_to_spotify &&
-								lanyard?.data.spotify?.album}
+							{lanyard?.listening_to_spotify &&
+								lanyard?.spotify?.album}
 						</p>
 					</div>
 				</div>
 			</div>
-			{/* <pre>{JSON.stringify(lanyard?.data, null, 2)}</pre> */}
+			{/* <pre>{JSON.stringify(lanyard, null, 2)}</pre> */}
 		</>
 	);
+}
+
+function getStatusString(lanyard: LanyardData | undefined) {
+	if (!lanyard) return "";
+
+	let str: string;
+
+	switch (lanyard.discord_status) {
+		case "online":
+			str = "Online";
+			break;
+		case "idle":
+			str = "Idle";
+			break;
+		case "dnd":
+			str = "Do Not Disturb";
+			break;
+		default:
+			return "Offline";
+	}
+
+	return `${str} on ${
+		lanyard.active_on_discord_mobile ? "Mobile" : "Desktop"
+	}`;
 }

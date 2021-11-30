@@ -5,10 +5,19 @@ export default function Nav() {
 		<div className="nav-container">
 			<nav>
 				<span>
-					<Link href="/">Home</Link>
+					<Link href="/">Home 🏠</Link>
 				</span>
 				<span>
-					<Link href="/projects">Projects</Link>
+					<Link href="/projects">Projects 📙</Link>
+				</span>
+				<span>
+					<a
+						href="https://github.com/cubedhuang/dannext"
+						target="_blank"
+						rel="noopener"
+					>
+						💻 Source
+					</a>
 				</span>
 			</nav>
 		</div>

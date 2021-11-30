@@ -70,6 +70,30 @@ main {
 	margin: 0 auto;
 }
 
+main > * {
+	animation-name: enter;
+	animation-duration: 0.5s;
+	animation-timing-function: cubic-bezier(0.14, 0.43, 0.27, 0.96);
+	animation-fill-mode: both;
+}
+
+@for $i from 1 through 10 {
+	main > :nth-child(#{$i}) {
+		animation-delay: ($i - 1) * 100ms;
+	}
+}
+
+@keyframes enter {
+	from {
+		opacity: 0;
+		transform: translateY(2rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -127,6 +151,10 @@ nav {
 
 	&:hover {
 		transform: translateY(calc(var(--pop-up) * -1));
+	}
+
+	:last-child {
+		margin-left: auto;
 	}
 
 	a {
