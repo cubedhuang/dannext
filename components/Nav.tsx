@@ -14,7 +14,7 @@ export default function Nav() {
 					<a
 						href="https://github.com/cubedhuang/dannext"
 						target="_blank"
-						rel="noopener"
+						rel="noreferrer"
 					>
 						💻 Source
 					</a>

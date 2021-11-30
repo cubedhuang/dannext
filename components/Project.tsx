@@ -68,7 +68,7 @@ export default function Project({ name, bg, href }: ProjectProps) {
 				}
 			`}</style>
 
-			<a href={href} target="_blank" rel="noopener" className="project">
+			<a href={href} target="_blank" rel="noreferrer" className="project">
 				<Image src={bg} alt={name} layout="fill" objectFit="cover" />
 				<h2>{name}</h2>
 			</a>
