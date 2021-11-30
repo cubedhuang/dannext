@@ -36,11 +36,15 @@ export default function Discord() {
 						}
 
 						.username {
-							font-size: 1.2rem;
+							font-size: 1.2em;
 
 							.discrim {
 								opacity: 0.5;
 							}
+						}
+
+						.custom {
+							font-size: 0.8rem;
 						}
 
 						.right {
@@ -72,6 +76,10 @@ export default function Discord() {
 						align-items: center;
 						padding-top: 1em;
 						gap: 1em;
+
+						h4 {
+							font-weight: normal;
+						}
 
 						img {
 							border-radius: 0.5em;
@@ -111,9 +119,11 @@ export default function Discord() {
 								#{lanyard?.discord_user.discriminator}
 							</span>
 						</div>
-						{lanyard?.activities[0]?.type === 4 && (
-							<p>{lanyard?.activities[0]?.state}</p>
-						)}
+						<p className="custom">
+							{lanyard?.activities[0]?.type === 4 && (
+								<p>{lanyard?.activities[0]?.state}</p>
+							)}
+						</p>
 					</div>
 					<div className="right">
 						<p className="time">
@@ -139,9 +149,14 @@ export default function Discord() {
 					<div>
 						<h4>Spotify</h4>
 						<p>
-							{lanyard?.listening_to_spotify
-								? `${lanyard?.spotify?.song} by ${lanyard?.spotify?.artist}`
-								: "Not Listening to Anything"}
+							{lanyard?.listening_to_spotify ? (
+								<>
+									<b>{lanyard?.spotify?.song}</b> by{" "}
+									{lanyard?.spotify?.artist}
+								</>
+							) : (
+								"Not Listening to Anything"
+							)}
 						</p>
 						<p>
 							{lanyard?.listening_to_spotify &&

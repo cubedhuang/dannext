@@ -26,7 +26,7 @@ export default function Project({ name, bg, href }: ProjectProps) {
 					justify-content: center;
 
 					margin: 1em 0;
-					padding: 2em;
+					padding: 3em 1em;
 					border-radius: 1em;
 
 					&::after {
