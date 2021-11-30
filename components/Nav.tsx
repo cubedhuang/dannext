@@ -16,7 +16,7 @@ export default function Nav() {
 						target="_blank"
 						rel="noreferrer"
 					>
-						💻 Source
+						Source 💻
 					</a>
 				</span>
 			</nav>

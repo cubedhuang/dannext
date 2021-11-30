@@ -138,10 +138,11 @@ nav {
 
 	width: var(--container);
 	margin: 0;
-	padding: 1em 1em calc(1em + var(--pop-up)) 1em;
+	padding: 0.5em 1em calc(0.5em + var(--pop-up)) 1em;
 	border-radius: 1em 1em 0 0;
 
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 1em;
 
@@ -161,6 +162,9 @@ nav {
 		padding: 0.5em 0.5em;
 		color: #fff;
 		background: transparent;
+		display: block;
+		text-align: center;
+		margin: 0;
 
 		border-radius: 0.5em;
 
