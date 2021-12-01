@@ -9,6 +9,8 @@ export default function Discord() {
 		socket: true
 	});
 
+	if (!lanyard) return null;
+
 	return (
 		<>
 			<style jsx>{`
@@ -51,9 +53,6 @@ export default function Discord() {
 							margin-left: auto;
 							text-align: right;
 
-							.time {
-								opacity: 0.5;
-							}
 							p {
 								&.online {
 									color: #4cd137;
@@ -94,6 +93,12 @@ export default function Discord() {
 								opacity: 0.5;
 							}
 						}
+
+						.right {
+							margin-left: auto;
+							text-align: right;
+							opacity: 0.5;
+						}
 					}
 				}
 			`}</style>
@@ -126,14 +131,6 @@ export default function Discord() {
 						</p>
 					</div>
 					<div className="right">
-						<p className="time">
-							<Clock
-								format={"HH:mm:ss"}
-								ticking={true}
-								timezone={"US/Eastern"}
-							/>{" "}
-							in Atlanta
-						</p>
 						<p className={lanyard?.discord_status ?? "offline"}>
 							{getStatusString(lanyard)}
 						</p>
@@ -163,9 +160,32 @@ export default function Discord() {
 								lanyard?.spotify?.album}
 						</p>
 					</div>
+					<div className="right">
+						{lanyard?.listening_to_spotify ? (
+							<>
+								Started listening at{" "}
+								<Clock
+									date={lanyard?.spotify?.timestamps?.start}
+									format={"HH:mm:ss"}
+									ticking={true}
+									timezone={"US/Eastern"}
+								/>
+							</>
+						) : (
+							<>
+								<code>
+									<Clock
+										format={"HH:mm:ss"}
+										ticking={true}
+										timezone={"US/Eastern"}
+									/>
+								</code>{" "}
+								in Atlanta
+							</>
+						)}
+					</div>
 				</div>
 			</div>
-			{/* <pre>{JSON.stringify(lanyard, null, 2)}</pre> */}
 		</>
 	);
 }
@@ -173,21 +193,15 @@ export default function Discord() {
 function getStatusString(lanyard: LanyardData | undefined) {
 	if (!lanyard) return "";
 
-	let str: string;
+	const strMap: Record<string, string> = {
+		online: "Online",
+		idle: "Idle",
+		dnd: "Do Not Disturb"
+	};
 
-	switch (lanyard.discord_status) {
-		case "online":
-			str = "Online";
-			break;
-		case "idle":
-			str = "Idle";
-			break;
-		case "dnd":
-			str = "Do Not Disturb";
-			break;
-		default:
-			return "Offline";
-	}
+	const str = strMap[lanyard.discord_status];
+
+	if (!str) return "Offline";
 
 	return `${str} on ${
 		lanyard.active_on_discord_mobile ? "Mobile" : "Desktop"
