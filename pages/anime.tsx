@@ -37,6 +37,12 @@ export default function Home() {
 				href="https://anilist.co/anime/98314/Kakegurui/"
 			/>
 			<Interest
+				name="Neon Genesis Evangelion"
+				desc="Mental illness."
+				bg="/nge.jpg"
+				href="https://anilist.co/anime/30/Shin-Seiki-Evangelion/"
+			/>
+			<Interest
 				name="Hunter x Hunter"
 				desc="Psychological horror."
 				bg="/hxh.jpg"
@@ -59,6 +65,12 @@ export default function Home() {
 				desc="Puberty syndrome?"
 				bg="/mai.jpg"
 				href="https://anilist.co/anime/101291/Rascal-Does-Not-Dream-of-Bunny-Girl-Senpai/"
+			/>
+			<Interest
+				name="Beastars"
+				desc="Carnivores."
+				bg="/beastars.png"
+				href="https://anilist.co/anime/107660/BEASTARS/"
 			/>
 		</>
 	);
