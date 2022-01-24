@@ -5,7 +5,10 @@ export default function Nav() {
 		<div className="nav-container">
 			<nav>
 				<span>
-					<Link href="/">Home 🏠</Link>
+					<Link href="/">Hi 🏠</Link>
+				</span>
+				<span>
+					<Link href="/anime">Anime ✨</Link>
 				</span>
 				<span>
 					<Link href="/projects">Projects 📙</Link>
