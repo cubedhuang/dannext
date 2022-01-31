@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-interface InterestProps {
+interface AnimeProps {
 	name: string;
 	desc: string;
 	bg: string;
 	href: string;
 }
 
-export default function Interest({ name, desc, bg, href }: InterestProps) {
+export default function Anime({ name, desc, bg, href }: AnimeProps) {
 	return (
 		<>
 			<style global jsx>{`

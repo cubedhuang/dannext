@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Interest from "../components/Interest";
+import Anime from "../components/Anime";
 
 export default function Home() {
 	return (
@@ -24,52 +24,58 @@ export default function Home() {
 
 			<p className="intro">I like anime.</p>
 
-			<Interest
+			<Anime
 				name="Saiki K."
 				desc="The world's unhappiest man."
-				bg="/saiki.jpg"
+				bg="/anime/saiki.jpg"
 				href="https://anilist.co/anime/21804/Saiki-Kusuo-no-nan/"
 			/>
-			<Interest
+			<Anime
 				name="Kakegurui"
 				desc="Gambling addict."
-				bg="/yumeko.jpg"
+				bg="/anime/yumeko.jpg"
 				href="https://anilist.co/anime/98314/Kakegurui/"
 			/>
-			<Interest
+			<Anime
 				name="Neon Genesis Evangelion"
 				desc="Mental illness."
-				bg="/nge.jpg"
+				bg="/anime/nge.jpg"
 				href="https://anilist.co/anime/30/Shin-Seiki-Evangelion/"
 			/>
-			<Interest
+			<Anime
+				name="Assassination Classroom"
+				desc="Koro-sensei!"
+				bg="/anime/classroom.jpg"
+				href="https://anilist.co/anime/20755/Ansatsu-Kyoushitsu"
+			/>
+			<Anime
 				name="Hunter x Hunter"
 				desc="Psychological horror."
-				bg="/hxh.jpg"
+				bg="/anime/hxh.jpg"
 				href="https://anilist.co/anime/11061/HUNTERHUNTER-2011/"
 			/>
-			<Interest
+			<Anime
 				name="Aggretsuko"
 				desc="Corporate slave."
-				bg="/retsuko.jpg"
+				bg="/anime/retsuko.jpg"
 				href="https://anilist.co/anime/101571/Aggressive-Retsuko/"
 			/>
-			<Interest
+			<Anime
 				name="Brand New Animal"
 				desc="Animal racism."
-				bg="/bna.jpg"
+				bg="/anime/bna.jpg"
 				href="https://anilist.co/anime/110354/BNA/"
 			/>
-			<Interest
+			<Anime
 				name="Rascal Does Not Dream"
 				desc="Puberty syndrome?"
-				bg="/mai.jpg"
+				bg="/anime/mai.jpg"
 				href="https://anilist.co/anime/101291/Rascal-Does-Not-Dream-of-Bunny-Girl-Senpai/"
 			/>
-			<Interest
+			<Anime
 				name="Beastars"
 				desc="Carnivores."
-				bg="/beastars.png"
+				bg="/anime/beastars.png"
 				href="https://anilist.co/anime/107660/BEASTARS/"
 			/>
 		</>
